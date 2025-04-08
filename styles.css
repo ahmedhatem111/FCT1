@@ -1,0 +1,932 @@
+/* متغيرات التصميم */
+:root {
+    --primary-color: #3b82f6;
+    --primary-dark: #2563eb;
+    --primary-light: #93c5fd;
+    --secondary-color: #1e293b;
+    --accent-color: #ef4444;
+    --light-color: #f8fafc;
+    --dark-color: #0f172a;
+    --gray-color: #64748b;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --border-radius: 12px;
+    --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --max-width: 1400px;
+  }
+  
+  /* الأساسيات */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Tajawal', sans-serif;
+    background-color: #f1f5f9;
+    color: var(--dark-color);
+    line-height: 1.6;
+    overflow-x: hidden;
+    direction: rtl;
+  }
+  
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  /* الهيدر */
+  header {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    text-align: center;
+    padding: 5rem 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.03)" points="0,100 100,0 100,100"/></svg>');
+    background-size: cover;
+    opacity: 0.5;
+  }
+  
+  .logo-container {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 1.5rem;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    padding: 10px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .logo-container img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  header h1 {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    font-weight: 800;
+    animation: fadeInDown 1s ease;
+    line-height: 1.2;
+  }
+  
+  header p {
+    font-size: 1.25rem;
+    opacity: 0.9;
+    margin: 0 auto;
+    animation: fadeInUp 1s ease;
+    max-width: 700px;
+  }
+  
+  /* الأقسام */
+  .section {
+    margin-bottom: 4rem;
+    animation: fadeIn 1s ease;
+  }
+  
+  .section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2.5rem;
+    position: relative;
+  }
+  
+  .section-header::after {
+    content: '';
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+    margin-right: 1.5rem;
+    opacity: 0.3;
+  }
+  
+  .section-title {
+    color: var(--secondary-color);
+    font-size: 2rem;
+    font-weight: 800;
+    white-space: nowrap;
+    position: relative;
+  }
+  
+  /* قسم الفرق */
+  .team-section {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 3rem;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  
+  .team-section:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-3px);
+  }
+  
+  .teams-icons-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+  
+  .team-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: var(--transition);
+    padding: 1rem;
+    border-radius: var(--border-radius);
+    width: 120px;
+  }
+  
+  .team-icon:hover {
+    transform: translateY(-5px);
+    background-color: rgba(0, 0, 0, 0.02);
+  }
+  
+  .team-icon.active {
+    background-color: rgba(59, 130, 246, 0.1);
+  }
+  
+  .team-icon .icon-wrapper {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    margin-bottom: 0.75rem;
+    transition: var(--transition);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .team-icon span {
+    font-weight: 600;
+    text-align: center;
+  }
+  
+  /* ألوان أيقونات الفرق */
+  .team-icon.development .icon-wrapper {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+  }
+  
+  .team-icon.design .icon-wrapper {
+    background-color: #fee2e2;
+    color: #ef4444;
+  }
+  
+  .team-icon.management .icon-wrapper {
+    background-color: #dcfce7;
+    color: #10b981;
+  }
+  
+  .team-icon.database .icon-wrapper {
+    background-color: #fef3c7;
+    color: #f59e0b;
+  }
+  
+  .team-icon.active .icon-wrapper {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* أعضاء الفريق */
+  .team-members {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .member-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: var(--transition);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e2e8f0;
+    position: relative;
+  }
+  
+  .member-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+  }
+  
+  .member-image-container {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .member-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
+  }
+  
+  .member-card:hover .member-image {
+    transform: scale(1.05);
+  }
+  
+  .member-info {
+    padding: 1.5rem;
+    text-align: center;
+  }
+  
+  .member-name {
+    color: var(--dark-color);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  
+  .member-role {
+    color: var(--primary-color);
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background-color: #eff6ff;
+    border-radius: 50px;
+  }
+  
+  .member-bio {
+    color: var(--gray-color);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+  }
+  
+  .member-social {
+    display: flex;
+    justify-content: center;
+    gap: 0.75rem;
+  }
+  
+  .member-social a {
+    color: var(--gray-color);
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+    background-color: #f1f5f9;
+  }
+  
+  .member-social a:hover {
+    color: white;
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+  }
+  
+  /* أقسام الفرق - مخفية بشكل افتراضي */
+  .team-category {
+    margin-bottom: 3rem;
+    display: none;
+    animation: fadeIn 0.5s ease;
+  }
+  
+  .team-category.active {
+    display: block;
+  }
+  
+  .team-category-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e2e8f0;
+  }
+  
+  .team-category-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  
+  .team-category-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+  }
+  
+  /* ألوان أيقونات أقسام الفرق */
+  .development-team .team-category-icon {
+    background-color: var(--primary-color);
+  }
+  
+  .design-team .team-category-icon {
+    background-color: var(--accent-color);
+  }
+  
+  .management-team .team-category-icon {
+    background-color: var(--success-color);
+  }
+  
+  .database-team .team-category-icon {
+    background-color: var(--warning-color);
+  }
+  
+  /* قسم التفاصيل */
+  .details-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+  
+  .details-card {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 2rem;
+    box-shadow: var(--box-shadow);
+    border-top: 4px solid var(--primary-color);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .details-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), transparent);
+    z-index: 0;
+  }
+  
+  .details-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .details-card h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    position: relative;
+  }
+  
+  .details-card p {
+    color: var(--gray-color);
+    font-size: 1rem;
+    line-height: 1.7;
+    position: relative;
+  }
+  
+  /* قسم الملفات */
+  .file-list {
+    list-style: none;
+  }
+  
+  .file-item {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--box-shadow);
+    transition: var(--transition);
+    border-left: 4px solid var(--primary-color);
+  }
+  
+  .file-item:hover {
+    transform: translateX(8px);
+  }
+  
+  .file-info {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    flex: 1;
+  }
+  
+  .file-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    background-color: #eff6ff;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  
+  .file-details {
+    flex: 1;
+  }
+  
+  .file-name {
+    font-weight: 700;
+    margin-bottom: 0.25rem;
+    color: var(--dark-color);
+  }
+  
+  .file-meta {
+    color: var(--gray-color);
+    font-size: 0.85rem;
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .file-actions {
+    display: flex;
+    gap: 0.75rem;
+    margin-right: 1rem;
+  }
+  
+  .view-btn,
+  .download-btn {
+    border: none;
+    padding: 0.6rem 1.25rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .view-btn {
+    background-color: var(--secondary-color);
+    color: white;
+  }
+  
+  .view-btn:hover {
+    background-color: var(--dark-color);
+    transform: translateY(-2px);
+  }
+  
+  .download-btn {
+    background-color: var(--primary-color);
+    color: white;
+  }
+  
+  .download-btn:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+  }
+  
+  /* نافذة عرض PDF */
+  .modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .modal-overlay.active {
+    opacity: 1;
+  }
+  
+  .modal-overlay.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.95);
+    z-index: 10000;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .modal-content {
+    width: 90%;
+    height: 90%;
+    max-width: 1200px;
+    max-height: 90vh;
+    background: #2c3e50;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+  }
+  
+  .modal-overlay.active .modal-content {
+    transform: translateY(0);
+  }
+  
+  .modal-overlay.fullscreen .modal-content {
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    border-radius: 0;
+  }
+  
+  .modal-header {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--dark-color);
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .modal-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60%;
+  }
+  
+  .modal-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .modal-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .modal-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
+  .modal-btn.fullscreen-btn i:last-child {
+    display: none;
+  }
+  
+  .modal-btn.fullscreen-btn.active i:first-child {
+    display: none;
+  }
+  
+  .modal-btn.fullscreen-btn.active i:last-child {
+    display: block;
+  }
+  
+  .pdf-viewer-container {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .modal-overlay.fullscreen .pdf-viewer-container {
+    height: calc(100vh - 120px);
+  }
+  
+  #pdf-viewer {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  
+  .pdf-controls {
+    padding: 0.75rem 1.5rem;
+    background-color: var(--dark-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+  }
+  
+  .pdf-nav-buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .pdf-nav-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .pdf-nav-btn:hover {
+    background-color: var(--primary-color);
+  }
+  
+  .pdf-nav-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: rgba(255, 255, 255, 0.1);
+  }
+  
+  .pdf-page-info {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .pdf-zoom-controls {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+  }
+  
+  .pdf-zoom-btn {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+  }
+  
+  .pdf-zoom-btn:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+  /* التلميحات */
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--dark-color);
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    right: 50%;
+    margin-right: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.8rem;
+  }
+  
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 50%;
+    margin-right: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: var(--dark-color) transparent transparent transparent;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+  }
+  
+  .loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: white;
+    animation: spin 1s ease-in-out infinite;
+  }
+  
+  /* تأثيرات الحركة */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
+  /* التكيف مع أحجام الشاشات المختلفة */
+  @media (max-width: 1024px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+    
+    header h1 {
+      font-size: 2.5rem;
+    }
+    
+    header p {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.25rem;
+    }
+    
+    header {
+      padding: 4rem 1.5rem;
+    }
+    
+    header h1 {
+      font-size: 2.2rem;
+    }
+    
+    .section-title {
+      font-size: 1.7rem;
+    }
+    
+    .team-members,
+    .details-section {
+      grid-template-columns: 1fr;
+    }
+    
+    .file-item {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+    
+    .file-actions {
+      width: 100%;
+      margin-right: 0;
+    }
+    
+    .view-btn,
+    .download-btn {
+      width: 100%;
+      justify-content: center;
+    }
+    
+    .modal-header {
+      padding: 0.5rem 1rem;
+    }
+    
+    .modal-title {
+      font-size: 0.9rem;
+      max-width: 50%;
+    }
+    
+    .modal-btn {
+      width: 32px;
+      height: 32px;
+      font-size: 0.9rem;
+    }
+    
+    .pdf-controls {
+      padding: 0.5rem 1rem;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+    }
+    
+    .pdf-nav-buttons,
+    .pdf-zoom-controls {
+      order: 1;
+    }
+    
+    .pdf-page-info {
+      width: 100%;
+      text-align: center;
+      order: 2;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header {
+      padding: 3rem 1rem;
+    }
+    
+    header h1 {
+      font-size: 1.8rem;
+    }
+    
+    header p {
+      font-size: 1rem;
+    }
+    
+    .section-title {
+      font-size: 1.5rem;
+      white-space: normal;
+    }
+    
+    .section-header::after {
+      display: none;
+    }
+    
+    .team-section,
+    .details-card {
+      padding: 1.5rem;
+    }
+    
+    .member-image-container {
+      height: 250px;
+    }
+    
+    .logo-container {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .pdf-controls {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+  }

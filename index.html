@@ -3,1438 +3,1429 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>اختبار الشخصية</title>
+    <title>Future Code Team FCT</title>
+    <meta name="description" content="Future Code Team FCT">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
     <style>
         :root {
-            --primary-color: #4361ee;
-            --secondary-color: #3f37c9;
-            --success-color: #4cc9f0;
-            --danger-color: #f72585;
-            --warning-color: #f8961e;
-            --light-color: #f8f9fa;
-            --dark-color: #212529;
-            --gray-color: #adb5bd;
-            --white-color: #ffffff;
-            --whatsapp-color: #25D366;
-            --whatsapp-dark: #128C7E;
+            --primary-color: #3b82f6;
+            --primary-dark: #2563eb;
+            --primary-light: #93c5fd;
+            --secondary-color: #1e293b;
+            --accent-color: #ef4444;
+            --light-color: #f8fafc;
+            --dark-color: #0f172a;
+            --gray-color: #64748b;
+            --success-color: #10b981;
+            --warning-color: #f59e0b;
+            --border-radius: 12px;
+            --box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --max-width: 1400px;
         }
         
         * {
-            box-sizing: border-box;
-            font-family: 'Tajawal', sans-serif;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
         }
         
         body {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            margin: 0;
-            padding: 20px;
+            font-family: 'Tajawal', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background-color: #f1f5f9;
             color: var(--dark-color);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .container {
-            max-width: 800px;
-            width: 100%;
-            margin: 20px auto;
-            background: var(--white-color);
-            border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            padding: 40px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 2rem;
         }
         
-        h1 {
-            color: var(--primary-color);
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
             text-align: center;
-            margin-bottom: 30px;
-            font-size: 32px;
-            font-weight: 700;
+            padding: 5rem 2rem;
+            margin-bottom: 3rem;
             position: relative;
-            padding-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         
-        h1::after {
+        header::before {
             content: '';
             position: absolute;
+            top: 0;
+            right: 0;
             bottom: 0;
-            right: 50%;
-            transform: translateX(50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(to right, var(--primary-color), var(--success-color));
-            border-radius: 2px;
+            left: 0;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><polygon fill="rgba(255,255,255,0.03)" points="0,100 100,0 100,100"/></svg>');
+            background-size: cover;
+            opacity: 0.5;
         }
         
-        h2 {
-            color: var(--secondary-color);
-            text-align: center;
-            margin-bottom: 25px;
-            font-size: 26px;
-            font-weight: 600;
+        header .container {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
         }
-        
-        h3 {
-            color: var(--dark-color);
-            margin-bottom: 20px;
-            font-size: 22px;
-            font-weight: 500;
-            line-height: 1.4;
+
+        .logo-container {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 1.5rem;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+            overflow: hidden;
+            padding: 0;
         }
-        
-        .section {
-            display: none;
-            animation: fadeIn 0.6s ease;
-        }
-        
-        .active {
+
+        .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
         }
         
-        input, select {
+        .logo-placeholder {
+            font-size: 3rem;
+            color: var(--primary-color);
             width: 100%;
-            padding: 16px 20px;
-            margin: 12px 0;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 17px;
-            transition: all 0.3s;
-            background-color: var(--light-color);
-        }
-        
-        input:focus, select:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(67, 97, 238, 0.15);
-            background-color: var(--white-color);
-        }
-        
-        button {
-            width: 100%;
-            padding: 16px;
-            margin: 15px 0;
-            border: none;
-            border-radius: 12px;
-            font-size: 18px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
         }
         
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: var(--white-color);
-            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            animation: fadeInDown 1s ease;
+            line-height: 1.2;
         }
         
-        .btn-primary:hover {
-            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+        header p {
+            font-size: 1.25rem;
+            opacity: 0.9;
+            margin: 0 auto;
+            animation: fadeInUp 1s ease;
+            max-width: 700px;
+        }
+        
+        .section {
+            margin-bottom: 4rem;
+            animation: fadeIn 1s ease;
+        }
+        
+        .section-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2.5rem;
+            position: relative;
+        }
+        
+        .section-header::after {
+            content: '';
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), transparent);
+            margin-right: 1.5rem;
+            opacity: 0.3;
+        }
+        
+        .section-title {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            font-weight: 800;
+            white-space: nowrap;
+            position: relative;
+        }
+        
+        .team-section {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 3rem;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .team-section:hover {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
         }
         
-        .btn-whatsapp {
-            background: linear-gradient(135deg, var(--whatsapp-color), var(--whatsapp-dark));
-            color: var(--white-color);
-            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
-        }
-        
-        .btn-whatsapp:hover {
-            background: linear-gradient(135deg, var(--whatsapp-dark), var(--whatsapp-color));
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
-        }
-        
-        .btn-danger {
-            background: linear-gradient(135deg, var(--danger-color), #c1121f);
-            color: var(--white-color);
-            box-shadow: 0 4px 15px rgba(247, 37, 133, 0.3);
-        }
-        
-        .btn-secondary {
-            background: var(--light-color);
-            color: var(--dark-color);
-            border: 1px solid var(--gray-color);
+        /* أنماط جديدة لأيقونات الفرق */
+        .teams-icons-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .btn-warning {
-            background: linear-gradient(135deg, var(--warning-color), #f3722c);
-            color: var(--white-color);
-            box-shadow: 0 4px 15px rgba(248, 150, 30, 0.3);
-        }
-        
-        button:disabled {
-            background: var(--gray-color);
-            cursor: not-allowed;
-            transform: none !important;
-            box-shadow: none !important;
-        }
-        
-        .hearts {
+        .team-icon {
             display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 30px 0;
-        }
-        
-        .heart {
-            width: 40px;
-            height: 40px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            background-position: center;
-            transition: all 0.3s;
-            filter: drop-shadow(0 2px 5px rgba(247, 37, 133, 0.3));
-        }
-        
-        .heart.inactive {
-            opacity: 0.3;
-            transform: scale(0.85);
-            filter: none;
-        }
-        
-        .timer {
-            background: linear-gradient(135deg, var(--dark-color), #343a40);
-            color: var(--white-color);
-            padding: 14px;
-            border-radius: 10px;
-            text-align: center;
-            margin: 25px 0;
-            font-size: 20px;
-            font-weight: 600;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .question-container {
-            margin: 30px 0;
-            padding: 25px;
-            background: var(--white-color);
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.03);
-        }
-        
-        .options {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            margin-top: 25px;
-        }
-        
-        .option {
-            background: var(--white-color);
-            text-align: right;
+            flex-direction: column;
+            align-items: center;
             cursor: pointer;
-            border: 2px solid #e9ecef;
-            font-size: 17px;
-            padding: 18px 20px;
-            border-radius: 12px;
-            font-weight: 500;
-            transition: all 0.3s;
-            position: relative;
-            overflow: hidden;
+            transition: var(--transition);
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            width: 120px;
         }
-        
-        .option:hover {
-            border-color: var(--primary-color);
-            transform: translateX(-5px);
-            box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.05);
+
+        .team-icon:hover {
+            transform: translateY(-5px);
+            background-color: rgba(0, 0, 0, 0.02);
         }
-        
-        .option.correct {
-            background-color: rgba(76, 201, 240, 0.1);
-            border-color: var(--success-color);
-            color: #1a936f;
+
+        .team-icon.active {
+            background-color: rgba(59, 130, 246, 0.1);
         }
-        
-        .option.incorrect {
-            background-color: rgba(247, 37, 133, 0.1);
-            border-color: var(--danger-color);
-            color: #c1121f;
-        }
-        
-        .option.selected {
-            border-color: var(--primary-color);
-            background-color: rgba(67, 97, 238, 0.1);
-        }
-        
-        .progress-container {
-            margin: 30px 0;
-            background: var(--light-color);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.05);
-            height: 14px;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary-color), var(--success-color));
-            width: 0%;
-            transition: width 0.5s ease;
-            border-radius: 10px;
-        }
-        
-        .results-container {
-            text-align: center;
-        }
-        
-        .score-circle {
-            width: 150px;
-            height: 150px;
-            margin: 0 auto 25px;
+
+        .team-icon .icon-wrapper {
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
-            background: conic-gradient(
-                var(--success-color) 0% calc(var(--score-percentage) * 1%),
-                var(--light-color) calc(var(--score-percentage) * 1%) 100%
-            );
-            box-shadow: 0 10px 30px rgba(76, 201, 240, 0.3);
+            font-size: 1.8rem;
+            margin-bottom: 0.75rem;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .team-icon span {
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* ألوان الفرق */
+        .team-icon.development .icon-wrapper {
+            background-color: var(--primary-light);
+            color: var(--primary-color);
+        }
+
+        .team-icon.design .icon-wrapper {
+            background-color: #fee2e2;
+            color: #ef4444;
+        }
+
+        .team-icon.management .icon-wrapper {
+            background-color: #dcfce7;
+            color: #10b981;
+        }
+
+        .team-icon.database .icon-wrapper {
+            background-color: #fef3c7;
+            color: #f59e0b;
+        }
+
+        .team-icon.active .icon-wrapper {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .team-members {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .member-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
             position: relative;
         }
         
-        .score-circle::before {
+        .member-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .member-image-container {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+        }
+        
+        .member-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+        
+        .member-card:hover .member-image {
+            transform: scale(1.05);
+        }
+        
+        .member-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        
+        .member-name {
+            color: var(--dark-color);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .member-role {
+            color: var(--primary-color);
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: #eff6ff;
+            border-radius: 50px;
+        }
+        
+        /* New Styles for Teams */
+        .team-category {
+            margin-bottom: 3rem;
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .team-category.active {
+            display: block;
+        }
+        
+        .team-category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #e2e8f0;
+        }
+        
+        .team-category-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .team-category-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .development-team .team-category-icon {
+            background-color: var(--primary-color);
+        }
+        
+        .design-team .team-category-icon {
+            background-color: var(--accent-color);
+        }
+        
+        .management-team .team-category-icon {
+            background-color: var(--success-color);
+        }
+        
+        .database-team .team-category-icon {
+            background-color: var(--warning-color);
+        }
+        
+        .details-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+        
+        .details-card {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--box-shadow);
+            border-top: 4px solid var(--primary-color);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .details-card::before {
             content: '';
             position: absolute;
-            width: 130px;
-            height: 130px;
-            background: var(--white-color);
-            border-radius: 50%;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.05), transparent);
+            z-index: 0;
         }
         
-        .score-value {
-            font-size: 42px;
-            font-weight: 700;
+        .details-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .details-card h3 {
             color: var(--primary-color);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
             position: relative;
-            z-index: 1;
-            line-height: 1;
         }
         
-        .score-total {
-            font-size: 18px;
+        .details-card p {
             color: var(--gray-color);
+            font-size: 1rem;
+            line-height: 1.7;
             position: relative;
-            z-index: 1;
         }
         
-        .result-details {
-            margin-top: 30px;
-            text-align: right;
+        .file-list {
+            list-style: none;
         }
         
-        .detail-row {
+        .file-item {
+            background-color: white;
+            border-radius: var(--border-radius);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 1rem;
             display: flex;
+            align-items: center;
             justify-content: space-between;
-            padding: 12px 0;
-            border-bottom: 1px solid #eee;
+            box-shadow: var(--box-shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--primary-color);
         }
         
-        .detail-label {
-            font-weight: 600;
+        .file-item:hover {
+            transform: translateX(8px);
+        }
+        
+        .file-info {
+            display: flex;
+            align-items: center;
+            gap: 1.25rem;
+            flex: 1;
+        }
+        
+        .file-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+        
+        .file-details {
+            flex: 1;
+        }
+        
+        .file-name {
+            font-weight: 700;
+            margin-bottom: 0.25rem;
             color: var(--dark-color);
         }
         
-        .detail-value {
-            color: var(--secondary-color);
-            font-weight: 500;
+        .file-meta {
+            color: var(--gray-color);
+            font-size: 0.85rem;
+            display: flex;
+            gap: 1rem;
         }
         
-        .error {
-            color: var(--danger-color);
-            font-size: 15px;
-            margin: -8px 0 15px 10px;
+        .file-actions {
+            display: flex;
+            gap: 0.75rem;
+            margin-right: 1rem;
+        }
+        
+        .view-btn, .download-btn {
+            border: none;
+            padding: 0.6rem 1.25rem;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .view-btn {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .view-btn:hover {
+            background-color: var(--dark-color);
+            transform: translateY(-2px);
+        }
+        
+        .download-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .download-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .modal-overlay {
             display: none;
-            font-weight: 500;
-        }
-        
-        .loading-overlay {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.7);
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+        }
+        
+        .modal-overlay.fullscreen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.95);
+            z-index: 10000;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .modal-content {
+            width: 90%;
+            height: 90%;
+            max-width: 1200px;
+            max-height: 90vh;
+            background: #2c3e50;
+            border-radius: var(--border-radius);
+            overflow: hidden;
             display: flex;
             flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            color: white;
-            font-size: 20px;
-            display: none;
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
         }
         
-        .loading-spinner {
-            border: 5px solid #f3f3f3;
-            border-top: 5px solid var(--whatsapp-color);
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-overlay.fullscreen .modal-content {
+            width: 100vw;
+            height: 100vh;
+            max-width: none;
+            max-height: none;
+            border-radius: 0;
+        }
+        
+        .modal-header {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--dark-color);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .modal-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 60%;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .modal-btn {
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin-bottom: 20px;
-        }
-        
-        /* أنماط الحماية */
-        .prevent-capture {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: #000;
-            z-index: 9999;
-            display: none;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 24px;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .exit-warning {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.9);
-            z-index: 9998;
-            display: none;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 24px;
-            text-align: center;
-            padding: 20px;
-        }
-        
-        .exit-warning button {
-            width: auto;
-            margin: 20px;
-            padding: 10px 20px;
-        }
-        
-        /* أنماط منع النسخ */
-        .no-select {
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-        }
-        
-        .no-copy-message {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: rgba(0,0,0,0.8);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            z-index: 1000;
-            display: none;
-            animation: fadeInOut 2s ease;
-        }
-        
-        /* أنماط الصوت */
-        .sound-control {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: rgba(255,255,255,0.8);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: var(--transition);
         }
         
-        /* أنماط الإشعارات */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--primary-color);
-            color: white;
-            padding: 15px 25px;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            z-index: 100;
+        .modal-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .modal-btn.fullscreen-btn i:last-child {
             display: none;
-            animation: slideIn 0.3s ease;
         }
         
-        @keyframes slideIn {
-            from { transform: translateY(-100px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
+        .modal-btn.fullscreen-btn.active i:first-child {
+            display: none;
         }
         
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .modal-btn.fullscreen-btn.active i:last-child {
+            display: block;
+        }
+        
+        .pdf-viewer-container {
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .modal-overlay.fullscreen .pdf-viewer-container {
+            height: calc(100vh - 120px);
+        }
+        
+        #pdf-viewer {
+            width: 100%;
+            height: 100%;
+            border: none;
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
         
-        @keyframes fadeInOut {
-            0% { opacity: 0; transform: translateY(10px); }
-            20% { opacity: 1; transform: translateY(0); }
-            80% { opacity: 1; transform: translateY(0); }
-            100% { opacity: 0; transform: translateY(-10px); }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-radius: 50%;
+            border-top-color: white;
+            animation: spin 1s ease-in-out infinite;
+        }
+        
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        
+        .tooltip {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 120px;
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            right: 50%;
+            margin-right: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 0.8rem;
+        }
+        
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            right: 50%;
+            margin-right: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: var(--dark-color) transparent transparent transparent;
+        }
+        
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+        
+        @media (max-width: 1024px) {
+            .container {
+                padding: 0 1.5rem;
+            }
+            
+            header h1 {
+                font-size: 2.5rem;
+            }
+            
+            header p {
+                font-size: 1.1rem;
+            }
         }
         
         @media (max-width: 768px) {
             .container {
-                padding: 25px;
-                border-radius: 15px;
+                padding: 0 1.25rem;
             }
             
-            h1 {
-                font-size: 26px;
+            header {
+                padding: 4rem 1.5rem;
             }
             
-            h2 {
-                font-size: 22px;
+            header h1 {
+                font-size: 2.2rem;
             }
             
-            h3 {
-                font-size: 20px;
+            .section-title {
+                font-size: 1.7rem;
             }
             
-            input, button, .option {
-                padding: 14px;
-                font-size: 16px;
+            .team-members {
+                grid-template-columns: 1fr;
             }
             
-            .question-container {
-                padding: 20px;
+            .details-section {
+                grid-template-columns: 1fr;
             }
             
-            .score-circle {
-                width: 120px;
-                height: 120px;
+            .file-item {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
             }
             
-            .score-circle::before {
-                width: 100px;
-                height: 100px;
+            .file-actions {
+                width: 100%;
+                margin-right: 0;
             }
             
-            .score-value {
-                font-size: 32px;
+            .view-btn, .download-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .modal-header {
+                padding: 0.5rem 1rem;
+            }
+            
+            .modal-title {
+                font-size: 0.9rem;
+                max-width: 50%;
+            }
+            
+            .modal-btn {
+                width: 32px;
+                height: 32px;
+                font-size: 0.9rem;
             }
         }
         
         @media (max-width: 480px) {
-            .container {
-                padding: 20px;
-                margin: 10px;
-                border-radius: 12px;
+            header {
+                padding: 3rem 1rem;
             }
             
-            h1 {
-                font-size: 24px;
-                margin-bottom: 20px;
+            header h1 {
+                font-size: 1.8rem;
             }
             
-            h2 {
-                font-size: 20px;
+            header p {
+                font-size: 1rem;
             }
             
-            h3 {
-                font-size: 18px;
+            .section-title {
+                font-size: 1.5rem;
+                white-space: normal;
             }
             
-            .exit-warning {
-                font-size: 18px;
-                padding: 15px;
+            .section-header::after {
+                display: none;
+            }
+            
+            .team-section, .details-card {
+                padding: 1.5rem;
+            }
+            
+            .member-image-container {
+                height: 250px;
+            }
+
+            .logo-container {
+                width: 120px;
+                height: 120px;
             }
         }
     </style>
 </head>
 <body>
-    <!-- عنصر التحكم بالصوت -->
-    <div class="sound-control" id="sound-control">
-        <i class="fas fa-volume-up" id="sound-icon"></i>
-    </div>
-    
-    <!-- إشعارات -->
-    <div class="notification" id="notification"></div>
-    
-    <!-- رسالة منع النسخ -->
-    <div class="no-copy-message" id="no-copy-message">
-        <i class="fas fa-ban"></i> النسخ غير مسموح به في هذا الاختبار
-    </div>
-
     <div class="container">
-        <h1>اختبار الشخصية</h1>
-        
-        <!-- شاشة البداية -->
-        <div class="section active" id="welcome-screen">
-            <h2>مرحباً بك في اختبار الشخصية</h2>
-            <p style="text-align: center; margin-bottom: 30px; font-size: 18px; color: var(--dark-color);">
-                هذا الاختبار سيحدد شخصيتك بناءً على إجاباتك. الرجاء الإجابة بصدق للحصول على نتائج دقيقة.
-            </p>
-            <button id="start-btn" class="btn-primary">
-                <i class="fas fa-play"></i> بدء الاختبار
-            </button>
-        </div>
-        
-        <!-- شاشة البيانات الشخصية -->
-        <div class="section" id="user-info">
-            <h2>البيانات الشخصية</h2>
-            <div>
-                <input type="text" id="user-name" placeholder="الاسم الكامل" required>
-                <p class="error" id="name-error">الاسم يجب أن يكون 3 أحرف على الأقل</p>
-            </div>
-            <div>
-                <input type="number" id="user-age" placeholder="العمر" min="10" max="100" required>
-                <p class="error" id="age-error">العمر يجب أن يكون بين 10 و 100</p>
-            </div>
-            <div>
-                <input type="email" id="user-email" placeholder="البريد الإلكتروني" required>
-                <p class="error" id="email-error">بريد إلكتروني غير صالح</p>
-            </div>
-            <div>
-                <input type="tel" id="user-phone" placeholder="رقم الهاتف" required>
-                <p class="error" id="phone-error">رقم هاتف غير صالح</p>
-            </div>
-            <button id="start-test" class="btn-primary" disabled>
-                <i class="fas fa-play"></i> بدء الاختبار
-            </button>
-            <p class="error" id="duplicate-error">هذه البيانات مستخدمة من قبل</p>
-        </div>
-        
-        <!-- شاشة الاختبار -->
-        <div class="section" id="quiz-container">
-            <div class="hearts" id="hearts-container">
-                <!-- سيتم إضافة القلوب ديناميكيًا -->
-            </div>
-            
-            <div class="timer">
-                الوقت المتبقي: <span id="time">10:00</span>
-            </div>
-            
-            <div class="progress-container">
-                <div class="progress-bar" id="progress-bar"></div>
-            </div>
-            
-            <div class="question-container">
-                <h3><span class="question-number" id="question-num">1</span> <span id="question-text">سؤال الاختبار هنا...</span></h3>
-                <div class="options" id="options-container">
-                    <!-- سيتم إضافة الخيارات ديناميكيًا -->
+        <header>
+            <div class="container">
+                <!-- مربع اللوجو المعدل -->
+                <div class="logo-container">
+                    <img src="فيوتشر تيم.jpg" alt="شعار فريق فيوتشر كود" id="team-logo" onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'logo-placeholder\'><i class=\'fas fa-users\'></i></div>';">
                 </div>
+                <h1>Future Code Team</h1>
             </div>
-            
-            <button id="skip-question" class="btn-warning" style="margin-top: 10px;">
-                <i class="fas fa-forward"></i> تخطي السؤال (سيخصم محاولة واحدة)
-            </button>
-        </div>
+        </header>
         
-        <!-- شاشة النتائج -->
-        <div class="section" id="results">
-            <div class="results-container">
-                <h2>نتيجة الاختبار</h2>
-                
-                <div class="score-circle" id="score-circle">
-                    <span class="score-value" id="score-value">0</span>
-                    <span class="score-total" id="score-total">/0</span>
+        <!-- قسم أيقونات الفرق المعدل -->
+        <section class="section">
+            <div class="team-section">
+                <div class="section-header">
+                    <h2 class="section-title">اعضاء تيم البرزنتيشن</h2>
                 </div>
                 
-                <div class="result-details">
-                    <div class="detail-row">
-                        <span class="detail-label">الاسم:</span>
-                        <span class="detail-value" id="result-name"></span>
+                <div class="teams-icons-container">
+                    <div class="team-icon development active" data-team="development">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-comments"></i> <!-- أيقونة التحدث بدلاً من التطوير -->
+                        </div>
+                        <span>فريق التحدث</span>
                     </div>
-                    <div class="detail-row">
-                        <span class="detail-label">الدرجة:</span>
-                        <span class="detail-value" id="result-score"></span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">الوقت المستغرق:</span>
-                        <span class="detail-value" id="time-taken"></span>
-                    </div>
-                    <div class="detail-row">
-                        <span class="detail-label">التاريخ:</span>
-                        <span class="detail-value" id="result-date"></span>
-                    </div>
-                </div>
-                
-                <div id="personality-result" style="margin-top: 30px; text-align: right;">
-                    <h3 style="color: var(--primary-color);">التقدير:</h3>
-                    <p id="personality-description" style="line-height: 1.6;"></p>
-                </div>
-                
-                <button id="send-results" class="btn-whatsapp send-results-btn" style="margin-top: 30px;">
-                    <i class="fab fa-whatsapp"></i> مشاركة عبر واتساب
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <div class="loading-overlay" id="loading-overlay">
-        <div class="loading-spinner"></div>
-        <p id="loading-text">جاري إعداد الاختبار...</p>
-    </div>
-    
-    <div class="prevent-capture" id="prevent-capture">
-        <div>
-            <i class="fas fa-ban" style="font-size: 50px; color: red; margin-bottom: 20px;"></i>
-            <p>غير مسموح بالتقاط صور للاختبار أثناء المحاولة</p>
-            <p>سيتم تسجيل أي محاولة غش!</p>
-        </div>
-    </div>
-    
-    <div class="exit-warning" id="exit-warning">
-        <div>
-            <i class="fas fa-exclamation-triangle" style="font-size: 50px; color: orange; margin-bottom: 20px;"></i>
-            <p>تحذير: إذا خرجت من الاختبار الآن سيتم احتسابها محاولة فاشلة!</p>
-            <p>هل تريد حقاً الخروج؟</p>
-            <div>
-                <button id="cancel-exit" class="btn-primary">
-                    <i class="fas fa-arrow-left"></i> العودة للاختبار
-                </button>
-                <button id="confirm-exit" class="btn-danger">
-                    <i class="fas fa-sign-out-alt"></i> خروج
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <!-- عناصر الصوت -->
-    <audio id="correct-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-correct-answer-tone-2870.mp3"></audio>
-    <audio id="wrong-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-wrong-answer-fail-notification-946.mp3"></audio>
-    <audio id="timer-sound" src="https://assets.mixkit.co/sfx/preview/mixkit-fast-clock-ticking-1064.mp3" loop></audio>
-    <audio id="bg-music" src="https://assets.mixkit.co/music/preview/mixkit-tech-house-vibes-130.mp3" loop></audio>
-
-    <script>
-        // المتغيرات العامة
-        const WEB_APP_URL = "https://script.google.com/macros/s/AKfycbxyRgTcfif_gt0--OMpHw9rRPZZtTdZy7xyjNK52jdkeLKi4EnLSShrLHp__th9LyE1/exec";
-        const usersKey = 'quizParticipants';
-        let users = JSON.parse(localStorage.getItem(usersKey)) || [];
-        let maxHearts = 3;
-        let hearts = maxHearts;
-        let timeLeft = 300;
-        let timer;
-        let currentQuestion = 0;
-        let score = 0;
-        let userData = {};
-        let startTime;
-        let selectedOption = null;
-        let isTestActive = false;
-        let testAttempted = false;
-        let soundEnabled = true;
-        const targetPhoneNumber = "1234567890";
-
-        // إعدادات القلوب
-        const heartImages = {
-            active: "https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_640.png",
-            inactive: "https://cdn.pixabay.com/photo/2017/09/23/16/33/pixel-heart-2779422_640.png"
-        };
-
-        // الأسئلة
-        const questions = [
-            {
-                text: "ما هو الشيء الذي تفضله في وقت الفراغ؟",
-                options: [
-                    { text: "قراءة الكتب", correct: false, personality: "مفكر" },
-                    { text: "ممارسة الرياضة", correct: true, personality: "نشيط" },
-                    { text: "مشاهدة الأفلام", correct: false, personality: "مبدع" },
-                    { text: "التسوق", correct: false, personality: "اجتماعي" }
-                ]
-            },
-            {
-                text: "كيف تتعامل مع الضغوط؟",
-                options: [
-                    { text: "أخذ استراحة", correct: true, personality: "هادئ" },
-                    { text: "الاستمرار في العمل", correct: false, personality: "مجتهد" },
-                    { text: "التحدث مع الأصدقاء", correct: false, personality: "اجتماعي" },
-                    { text: "الغضب", correct: false, personality: "عصبي" }
-                ]
-            },
-            {
-                text: "ما هو أهم شيء في الحياة بالنسبة لك؟",
-                options: [
-                    { text: "الصحة", correct: true, personality: "عملي" },
-                    { text: "المال", correct: false, personality: "طموح" },
-                    { text: "الأسرة", correct: false, personality: "عائلي" },
-                    { text: "النجاح", correct: false, personality: "قائد" }
-                ]
-            }
-        ];
-
-        // عناصر DOM
-        const sections = document.querySelectorAll('.section');
-        const startBtn = document.getElementById('start-test');
-        const startScreenBtn = document.getElementById('start-btn');
-        const nameInput = document.getElementById('user-name');
-        const ageInput = document.getElementById('user-age');
-        const emailInput = document.getElementById('user-email');
-        const phoneInput = document.getElementById('user-phone');
-        const errorElements = document.querySelectorAll('.error');
-        const duplicateError = document.getElementById('duplicate-error');
-        const loadingOverlay = document.getElementById('loading-overlay');
-        const loadingText = document.getElementById('loading-text');
-        const sendResultsBtn = document.getElementById('send-results');
-        const skipQuestionBtn = document.getElementById('skip-question');
-        const preventCapture = document.getElementById('prevent-capture');
-        const exitWarning = document.getElementById('exit-warning');
-        const cancelExitBtn = document.getElementById('cancel-exit');
-        const confirmExitBtn = document.getElementById('confirm-exit');
-        const heartsContainer = document.getElementById('hearts-container');
-        const noCopyMessage = document.getElementById('no-copy-message');
-        const soundControl = document.getElementById('sound-control');
-        const soundIcon = document.getElementById('sound-icon');
-        const notification = document.getElementById('notification');
-        const personalityResult = document.getElementById('personality-result');
-        const personalityDesc = document.getElementById('personality-description');
-
-        // عناصر الصوت
-        const correctSound = document.getElementById('correct-sound');
-        const wrongSound = document.getElementById('wrong-sound');
-        const timerSound = document.getElementById('timer-sound');
-        const bgMusic = document.getElementById('bg-music');
-
-        // الأحداث
-        startScreenBtn.addEventListener('click', startTestProcess);
-        startBtn.addEventListener('click', startTest);
-        sendResultsBtn.addEventListener('click', sendResultsWithScreenshot);
-        skipQuestionBtn.addEventListener('click', skipQuestion);
-        cancelExitBtn.addEventListener('click', () => exitWarning.style.display = 'none');
-        confirmExitBtn.addEventListener('click', confirmExit);
-        soundControl.addEventListener('click', toggleSound);
-
-        // التحقق من صحة البيانات
-        nameInput.addEventListener('input', validateForm);
-        ageInput.addEventListener('input', validateForm);
-        emailInput.addEventListener('input', validateForm);
-        phoneInput.addEventListener('input', validateForm);
-
-        // بدء عملية الاختبار
-        function startTestProcess() {
-            showSection('user-info');
-            playSound('bg-music');
-        }
-
-        // التحكم بالصوت
-        function toggleSound() {
-            soundEnabled = !soundEnabled;
-            soundIcon.className = soundEnabled ? 'fas fa-volume-up' : 'fas fa-volume-mute';
-            
-            if (soundEnabled) {
-                bgMusic.play().catch(e => console.log('لا يمكن تشغيل الصوت:', e));
-            } else {
-                bgMusic.pause();
-                timerSound.pause();
-            }
-            
-            showNotification(soundEnabled ? 'تم تفعيل الصوت' : 'تم إيقاف الصوت');
-        }
-
-        // تشغيل صوت معين
-        function playSound(soundId) {
-            if (!soundEnabled) return;
-            
-            const sound = document.getElementById(soundId);
-            sound.currentTime = 0;
-            sound.play().catch(e => console.log('لا يمكن تشغيل الصوت:', e));
-        }
-
-        // عرض إشعار
-        function showNotification(message) {
-            notification.textContent = message;
-            notification.style.display = 'block';
-            
-            setTimeout(() => {
-                notification.style.display = 'none';
-            }, 3000);
-        }
-
-        // إنشاء القلوب
-        function createHearts() {
-            heartsContainer.innerHTML = '';
-            for (let i = 0; i < maxHearts; i++) {
-                const heart = document.createElement('div');
-                heart.className = 'heart';
-                heart.id = `heart${i+1}`;
-                heart.style.backgroundImage = `url(${heartImages.active})`;
-                heartsContainer.appendChild(heart);
-            }
-        }
-
-        // تحقق من صحة النموذج
-        function validateForm() {
-            let isValid = true;
-            resetErrors();
-
-            if (nameInput.value.trim().length < 3) {
-                showError('name-error', 'الاسم يجب أن يكون 3 أحرف على الأقل');
-                isValid = false;
-            }
-
-            const age = parseInt(ageInput.value);
-            if (isNaN(age) || age < 10 || age > 100) {
-                showError('age-error', 'العمر يجب أن يكون بين 10 و 100');
-                isValid = false;
-            }
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(emailInput.value)) {
-                showError('email-error', 'بريد إلكتروني غير صالح');
-                isValid = false;
-            }
-
-            const phoneRegex = /^[0-9]{10,15}$/;
-            if (!phoneRegex.test(phoneInput.value)) {
-                showError('phone-error', 'رقم هاتف غير صالح');
-                isValid = false;
-            }
-
-            if (isDuplicateUser()) {
-                showError('duplicate-error', 'هذه البيانات مستخدمة من قبل');
-                isValid = false;
-            }
-
-            startBtn.disabled = !isValid;
-            return isValid;
-        }
-
-        function isDuplicateUser() {
-            const name = nameInput.value.trim().toLowerCase();
-            const email = emailInput.value.trim().toLowerCase();
-            const phone = phoneInput.value.trim();
-
-            return users.some(user => 
-                user.name.toLowerCase() === name || 
-                user.email.toLowerCase() === email || 
-                user.phone === phone
-            );
-        }
-
-        function showError(id, message) {
-            const errorElement = document.getElementById(id);
-            errorElement.textContent = message;
-            errorElement.style.display = 'block';
-        }
-
-        function resetErrors() {
-            errorElements.forEach(el => {
-                el.style.display = 'none';
-            });
-        }
-
-        // منع النسخ واللصق
-        function preventCopying() {
-            document.addEventListener('selectstart', function(e) {
-                if (isTestActive) {
-                    e.preventDefault();
-                    showNoCopyMessage();
-                }
-            });
-            
-            document.addEventListener('contextmenu', function(e) {
-                if (isTestActive) {
-                    e.preventDefault();
-                    showNoCopyMessage();
-                }
-            });
-            
-            document.addEventListener('keydown', function(e) {
-                if (isTestActive && (e.ctrlKey || e.metaKey) && (e.key === 'c' || e.key === 'C' || e.key === 'x' || e.key === 'X')) {
-                    e.preventDefault();
-                    showNoCopyMessage();
-                }
-            });
-            
-            if (isTestActive) {
-                document.getElementById('question-text').classList.add('no-select');
-                document.getElementById('options-container').classList.add('no-select');
-            }
-        }
-        
-        function showNoCopyMessage() {
-            noCopyMessage.style.display = 'block';
-            
-            setTimeout(() => {
-                noCopyMessage.style.display = 'none';
-            }, 2000);
-        }
-
-        // بدء الاختبار
-        function startTest() {
-            if (!validateForm()) return;
-
-            isTestActive = true;
-            testAttempted = false;
-            
-            createHearts();
-            preventScreenCapture();
-            preventExit();
-            preventCopying();
-
-            userData = {
-                name: nameInput.value.trim(),
-                age: ageInput.value.trim(),
-                email: emailInput.value.trim(),
-                phone: phoneInput.value.trim(),
-                timestamp: new Date().toISOString(),
-                testType: 'personality'
-            };
-
-            users.push(userData);
-            localStorage.setItem(usersKey, JSON.stringify(users));
-
-            showLoading('جاري تحميل الاختبار...');
-            
-            setTimeout(() => {
-                hideLoading();
-                showSection('quiz-container');
-                startTime = new Date();
-                startTimer();
-                loadQuestion();
-            }, 1500);
-        }
-
-        // عرض شاشة التحميل
-        function showLoading(message) {
-            loadingText.textContent = message;
-            loadingOverlay.style.display = 'flex';
-        }
-
-        // إخفاء شاشة التحميل
-        function hideLoading() {
-            loadingOverlay.style.display = 'none';
-        }
-
-        function showSection(sectionId) {
-            sections.forEach(section => {
-                section.classList.remove('active');
-                if (section.id === sectionId) {
-                    section.classList.add('active');
-                }
-            });
-        }
-
-        // بدء المؤقت
-        function startTimer() {
-            updateTimerDisplay();
-            timer = setInterval(() => {
-                timeLeft--;
-                updateTimerDisplay();
-                
-                if (timeLeft <= 30 && timeLeft > 0) {
-                    playSound('timer-sound');
-                }
-                
-                if (timeLeft <= 0) endTest();
-            }, 1000);
-        }
-
-        function updateTimerDisplay() {
-            const minutes = Math.floor(timeLeft / 60);
-            const seconds = timeLeft % 60;
-            document.getElementById('time').textContent = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-            
-            if (timeLeft <= 30) {
-                document.getElementById('time').style.color = 'var(--danger-color)';
-            }
-        }
-
-        // تحميل السؤال
-        function loadQuestion() {
-            if (currentQuestion >= questions.length) {
-                endTest();
-                return;
-            }
-            
-            const question = questions[currentQuestion];
-            const questionTextElement = document.getElementById('question-text');
-            questionTextElement.textContent = question.text;
-            questionTextElement.classList.add('no-select');
-            
-            document.getElementById('question-num').textContent = currentQuestion + 1;
-            
-            const optionsContainer = document.getElementById('options-container');
-            optionsContainer.innerHTML = '';
-            optionsContainer.classList.add('no-select');
-            
-            question.options.forEach((option, index) => {
-                const button = document.createElement('button');
-                button.className = 'option no-select';
-                button.textContent = option.text;
-                button.onclick = () => selectOption(button, option.correct, option.personality);
-                optionsContainer.appendChild(button);
-            });
-            
-            const progress = (currentQuestion / questions.length) * 100;
-            document.getElementById('progress-bar').style.width = `${progress}%`;
-            
-            // تحديث حالة زر التخطي بناءً على عدد المحاولات المتبقية
-            skipQuestionBtn.disabled = hearts < 2;
-            
-            selectedOption = null;
-        }
-
-        // اختيار الإجابة
-        function selectOption(optionElement, isCorrect, personalityType) {
-            if (selectedOption !== null) return;
-            
-            selectedOption = { 
-                element: optionElement, 
-                correct: isCorrect,
-                personality: personalityType
-            };
-            optionElement.classList.add('selected');
-            
-            setTimeout(() => {
-                checkAnswer(isCorrect, personalityType);
-            }, 800);
-        }
-
-        // تخطي السؤال
-        function skipQuestion() {
-            // التحقق من وجود محاولات كافية للتخطي
-            if (hearts < 1) {
-                showNotification('لا يوجد محاولات كافية لتخطي السؤال');
-                return;
-            }
-            
-            // خصم محاولة واحدة
-            hearts--;
-            document.getElementById(`heart${hearts + 1}`).classList.add('inactive');
-            document.getElementById(`heart${hearts + 1}`).style.backgroundImage = `url(${heartImages.inactive})`;
-            
-            showNotification('تم تخطي السؤال وخصم محاولة واحدة');
-            
-            // الانتقال إلى السؤال التالي
-            currentQuestion++;
-            loadQuestion();
-            
-            // تعطيل الزر إذا لم يعد هناك محاولات كافية
-            skipQuestionBtn.disabled = hearts < 2;
-            
-            // إنهاء الاختبار إذا نفذت المحاولات
-            if (hearts <= 0) {
-                setTimeout(() => endTest(), 1500);
-            }
-        }
-
-        // التحقق من الإجابة
-        function checkAnswer(isCorrect, personalityType) {
-            const options = document.querySelectorAll('.option');
-            
-            options.forEach(option => {
-                if (option === selectedOption.element) {
-                    option.classList.add(isCorrect ? 'correct' : 'incorrect');
                     
-                    if (isCorrect) {
-                        playSound('correct-sound');
-                    } else {
-                        playSound('wrong-sound');
-                    }
-                } else {
-                    const correctOption = Array.from(options).find(opt => 
-                        opt.textContent === questions[currentQuestion].options.find(opt => opt.correct).text
-                    );
-                    if (!isCorrect) {
-                        correctOption.classList.add('correct');
-                    }
-                }
+                    <div class="team-icon design" data-team="design">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-pen"></i> <!-- أيقونة الكتابة بدلاً من التصميم -->
+                        </div>
+                        <span>فريق الكتابة</span>
+                    </div>
+                    
+                    <div class="team-icon management" data-team="management">
+                        <div class="icon-wrapper">
+                            <i class="fas fa-paint-brush"></i> <!-- أيقونة التصميم للإدارة -->
+                        </div>
+                        <span>فريق التصميم</span>
+                    </div>
+                    
+            </div>
+        </section>
+        
+        <!-- أقسام فرق العمل -->
+        <section class="section">
+            <div class="team-section">
+                <div class="team-category development-team active" id="developmentTeam">
+                    <div class="team-category-header">
+                        <div class="team-category-title">
+                            <div class="team-category-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <span>فريق التحدث</span>
+                        </div>
+                    </div>
+                    <div class="team-members"></div>
+                </div>
                 
-                option.style.pointerEvents = 'none';
-            });
+                <div class="team-category design-team" id="designTeam">
+                    <div class="team-category-header">
+                        <div class="team-category-title">
+                            <div class="team-category-icon">
+                                <i class="fas fa-pen"></i>
+                            </div>
+                            <span>فريق الكتابة</span>
+                        </div>
+                    </div>
+                    <div class="team-members"></div>
+                </div>
+                
+                <div class="team-category management-team" id="managementTeam">
+                    <div class="team-category-header">
+                        <div class="team-category-title">
+                            <div class="team-category-icon">
+                                <i class="fas fa-paint-brush"></i>
+                            </div>
+                            <span>فريق التصميم</span>
+                        </div>
+                    </div>
+                    <div class="team-members"></div>
+                </div>
+                
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="team-section">
+                <div class="section-header">
+                    <h2 class="section-title">تفاصيل المشاركة</h2>
+                </div>
+                <div class="details-section">
+                    <div class="details-card">
+                        <h3>برزنتيشن مادة قانون الحاسب</h3>
+                        <p>تحت ادارة و اشراف دكتورة ندي</p>
+                    </div>
+                    <div class="details-card">
+                        <h3>التاريخ والمكان</h3>
+                        <p>2025 - جامعة قنا</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="team-section">
+                <div class="section-header">
+                    <h2 class="section-title">ملفات البرزنتيشن</h2>
+                </div>
+                <ul class="file-list" id="presentationFiles">
+                    <!-- Files will be added by JavaScript -->
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <!-- Enhanced PDF Viewer Modal -->
+    <div id="pdfModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title" id="pdfModalTitle">عرض الملف</div>
+                <div class="modal-actions">
+                    <button class="modal-btn fullscreen-btn" id="toggle-fullscreen">
+                        <i class="fas fa-expand"></i>
+                        <i class="fas fa-compress"></i>
+                    </button>
+                    <button class="modal-btn close-modal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="pdf-viewer-container">
+                <iframe id="pdf-viewer" class="pdf-viewer" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/js/all.min.js"></script>
+    
+    <!-- Enhanced JavaScript -->
+    <script>
+        // Set PDF.js worker path
+        pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.11.338/pdf.worker.min.js';
+        
+        document.addEventListener('DOMContentLoaded', function() {
+            // Team Members Data organized by teams (with hidden names)
+            const teams = {
+                development: [
+                    {
+                        name: "امنيه محمود",
+                        role: "متحدثة",
+                        image: "تحدث بنت.jpg"
+                    },
+                    {
+                        name: "حبيبه حمدي",
+                        role: "متحدثة",
+                        image: "تحدث بنت.jpg"
+                    },
+                    {
+                        name: "رؤي محمد",
+                        role: "متحدثة",
+                        image: "تحدث بنت.jpg"
+                    },
+                    {
+                        name: "ملك السيد",
+                        role: "متحدثة",
+                        image: "تحدث بنت.jpg"
+                    },
+                    {
+                        name: "مريم نصر",
+                        role: "متحدثة",
+                        image: "تحدث بنت.jpg"
+                    },
+                    {
+                        name: "شهدة طارق",
+                        role: "متحدثة",
+                        image: "تحدث بنت.jpg"
+                    },
+                    {
+                        name: "حسين سيد",
+                        role: "متحدث",
+                        image: "تحدث ولد.jpg"
+                    },
+                    {
+                        name: "فارس حشمت",
+                        role: "متحدث",
+                        image: "تحدث ولد.jpg"
+                    },
+                ],
+                design: [
+                    {
+                        name: "سلمي ماجد",
+                        role: "كاتبة",
+                        image: "فريق الكتابه بنت.jpg"
+                    },
+                    {
+                        name: "حسين عيسي",
+                        role: "كاتب",
+                        image: "فريق الكتابه ولد.jpg"
+                    },
+                    {
+                        name: "امين سامي",
+                        role: "كاتب",
+                        image: "فريق الكتابه ولد.jpg"
+                    },
+                    {
+                        name: "شريف اشرف",
+                        role: "كاتب",
+                        image: "فريق الكتابه ولد.jpg"
+                    },
+                    {
+                        name: "سلمي ياسر",
+                        role: "كاتبة",
+                        image: "فريق الكتابه بنت.jpg"
+                    },
+                    {
+                        name: "مؤمن احمد",
+                        role: "كاتب",
+                        image: "فريق الكتابه ولد.jpg"
+                    },
+                    {
+                        name: "علي عبد المحسن",
+                        role: "كاتب",
+                        image: "فريق الكتابه ولد.jpg"
+                    },
+                ],
+                management: [
+                    {
+                        name: "احمد حاتم",
+                        role: "مصمم جرافيك - مصمم الموقع - مصمم برزنتيشن - محرر فديو",
+                        image: "فريق التصميم ولاد.jpg"
+                    },
+                    {
+                        name: "يوسف اشرف",
+                        role: "مصمم جرافيك - مصمم لوجو - مصمم برزنتيشن",
+                        image: "فريق التصميم ولاد.jpg"
+                    },
+                ],
             
-            if (isCorrect) {
-                score++;
+            };
+            
+            // Presentation Files Data with PDF examples
+            const presentationFiles = [
+
+                {
+                    name: "ملف الباور بوينت للبرزنتيشن",
+                    type: "PDF",
+                    size: "5.7 MB",
+                    icon: "file-powerpoint",
+                    url: "https://filetools0.pdf24.org/client.php?mode=inline&file=joinPdf_opdgzjppix4frbnmftu4amy63t_13659500861456478424.pdf&action=getFile",
+                    previewUrl: "https://filetools0.pdf24.org/client.php?mode=inline&file=joinPdf_opdgzjppix4frbnmftu4amy63t_13659500861456478424.pdf&action=getFile"
+                },
+                {
+                    name: "ملف النص المشروح في البرزنتيشن",
+                    type: "PDF",
+                    size: "4.2 MB",
+                    icon: "file-pdf",
+                    url: "https://filetools29.pdf24.org/client.php?mode=inline&file=joinPdf_qdanocpfmiuup7e2ee5hzkz7jp_17800835328788031568.pdf&action=getFile",
+                    previewUrl: "https://filetools29.pdf24.org/client.php?mode=inline&file=joinPdf_qdanocpfmiuup7e2ee5hzkz7jp_17800835328788031568.pdf&action=getFile",
+                },
+                {
+                    name: "ملف اسئله ومراجعه في المشروح في البرزنتيشن",
+                    type: "PDF",
+                    size: "4.2 MB",
+                    icon: "file-pdf",
+                    url: "https://filetools22.pdf24.org/client.php?mode=inline&file=joinPdf_f4h265tst4nrd5uiqm2awhvg6t_2785558935794553748.pdf&action=getFile",
+                    previewUrl: "https://filetools22.pdf24.org/client.php?mode=inline&file=joinPdf_f4h265tst4nrd5uiqm2awhvg6t_2785558935794553748.pdf&action=getFile"
+                },
+                {
+                    name: "ملف اسماء المشاركين في البرزنتيشن",
+                    type: "PDF",
+                    size: "2.1 MB",
+                    icon: "file-pdf",
+                    url: "https://filetools6.pdf24.org/client.php?mode=inline&file=joinPdf_7gyz2xbtgdjjhrxlvr7zbnt3up_1850922488670162470.pdf&action=getFile",
+                    previewUrl: "https://filetools6.pdf24.org/client.php?mode=inline&file=joinPdf_7gyz2xbtgdjjhrxlvr7zbnt3up_1850922488670162470.pdf&action=getFile"
+                },
+            ];
+            
+            // Function to render team members
+            function renderTeamMembers(teamId, members) {
+                const container = document.querySelector(`#${teamId} .team-members`);
+                container.innerHTML = ''; // Clear previous content
                 
-                if (personalityType) {
-                    userData.personality = userData.personality || {};
-                    userData.personality[personalityType] = (userData.personality[personalityType] || 0) + 1;
-                }
-            } else {
-                hearts--;
-                document.getElementById(`heart${hearts + 1}`).classList.add('inactive');
-                document.getElementById(`heart${hearts + 1}`).style.backgroundImage = `url(${heartImages.inactive})`;
-                
-                if (hearts <= 0) {
-                    setTimeout(() => endTest(), 1500);
-                    return;
-                }
+                members.forEach(member => {
+                    const memberCard = document.createElement('div');
+                    memberCard.className = 'member-card';
+                    
+                    memberCard.innerHTML = `
+                        <div class="member-image-container">
+                            <img src="${member.image}" alt="${member.name}" class="member-image" loading="lazy">
+                        </div>
+                        <div class="member-info">
+                            <h3 class="member-name">${member.name}</h3>
+                            <p class="member-role">${member.role}</p>
+                        </div>
+                    `;
+                    container.appendChild(memberCard);
+                });
             }
             
-            setTimeout(() => {
-                currentQuestion++;
-                loadQuestion();
-            }, 1500);
-        }
-
-        // إنهاء الاختبار
-        function endTest() {
-            isTestActive = false;
-            clearInterval(timer);
-            timerSound.pause();
-            
-            const endTime = new Date();
-            const timeTaken = Math.floor((endTime - startTime) / 1000);
-            const minutes = Math.floor(timeTaken / 60);
-            const seconds = timeTaken % 60;
-            const timeString = `${minutes} دقائق و ${seconds} ثواني`;
-            const currentDate = new Date().toLocaleDateString('ar-EG');
-            
-            document.getElementById('result-name').textContent = userData.name;
-            document.getElementById('result-score').textContent = `${score}/${questions.length}`;
-            document.getElementById('time-taken').textContent = timeString;
-            document.getElementById('result-date').textContent = currentDate;
-            
-            const percentage = Math.round((score / questions.length) * 100);
-            document.getElementById('score-circle').style.setProperty('--score-percentage', percentage);
-            animateScore(0, score, 1000);
-            document.getElementById('score-total').textContent = `/${questions.length}`;
-            
-            // عرض التقدير
-            personalityResult.style.display = 'block';
-            personalityDesc.textContent = getGradeDescription(percentage);
-            
-            showSection('results');
-            saveResults(percentage, timeString, currentDate);
-        }
-
-        // الحصول على وصف التقدير
-        function getGradeDescription(percentage) {
-            if (percentage >= 90) {
-                return "ممتاز! لديك شخصية متوازنة ومتكاملة.";
-            } else if (percentage >= 70) {
-                return "جيد جداً! لديك شخصية قوية مع بعض الجوانب التي يمكن تطويرها.";
-            } else if (percentage >= 50) {
-                return "جيد! لديك شخصية متوسطة مع بعض الجوانب التي تحتاج إلى تحسين.";
-            } else {
-                return "ضعيف! تحتاج إلى العمل على تطوير شخصيتك وتحسين مهاراتك الاجتماعية.";
-            }
-        }
-
-        // عرض النتيجة متحركة
-        function animateScore(start, end, duration) {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const value = Math.floor(progress * (end - start) + start);
-                document.getElementById('score-value').textContent = value;
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        }
-
-        // حفظ النتائج
-        async function saveResults(percentage, timeTaken, date) {
-            const resultData = {
-                type: 'user_data',
-                name: userData.name,
-                age: userData.age,
-                email: userData.email,
-                phone: userData.phone,
-                score: score,
-                totalQuestions: questions.length,
-                percentage: percentage,
-                timeTaken: timeTaken,
-                date: date,
-                timestamp: new Date().toISOString(),
-                status: testAttempted ? 'فاشلة' : 'ناجحة',
-                heartsLeft: hearts,
-                testType: 'personality',
-                personality: userData.personality
-            };
-
-            try {
-                loadingText.textContent = 'جاري حفظ النتائج...';
-                loadingOverlay.style.display = 'flex';
-                
-                const response = await fetch(WEB_APP_URL, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(resultData)
+            // Function to show selected team and hide others
+            function showTeam(teamId) {
+                // إزالة التنشيط من جميع الأيقونات
+                document.querySelectorAll('.team-icon').forEach(icon => {
+                    icon.classList.remove('active');
                 });
                 
-                const result = await response.json();
-                console.log("تم إرسال البيانات بنجاح:", result);
+                // تنشيط الأيقونة المحددة
+                document.querySelector(`.team-icon[data-team="${teamId}"]`).classList.add('active');
                 
-            } catch (error) {
-                console.error("خطأ في إرسال البيانات:", error);
-                localStorage.setItem('quiz_backup_' + Date.now(), JSON.stringify(resultData));
-            } finally {
-                loadingOverlay.style.display = 'none';
+                // إخفاء جميع فرق العمل
+                document.querySelectorAll('.team-category').forEach(category => {
+                    category.classList.remove('active');
+                });
+                
+                // إظهار الفريق المحدد مع تأثير
+                const teamSection = document.querySelector(`.${teamId}-team`);
+                if (teamSection) {
+                    teamSection.classList.add('active');
+                    teamSection.style.animation = 'fadeIn 0.5s ease';
+                    
+                    // Render team members if not already rendered
+                    if (teamSection.querySelector('.team-members').children.length === 0) {
+                        renderTeamMembers(`${teamId}Team`, teams[teamId]);
+                    }
+                }
+                
+                // التمرير إلى قسم الفريق
+                setTimeout(() => {
+                    teamSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 100);
             }
-        }
-        
-        // إرسال النتائج مع صورة
-        async function sendResultsWithScreenshot() {
-            loadingText.textContent = 'جاري إعداد النتيجة للإرسال...';
-            loadingOverlay.style.display = 'flex';
             
-            try {
-                const canvas = await html2canvas(document.getElementById('results'));
-                const imageData = canvas.toDataURL('image/png');
+            // Initialize teams functionality
+            function initTeams() {
+                // Render initial team (development)
+                renderTeamMembers('developmentTeam', teams.development);
                 
-                const message = `نتيجة اختبار الشخصية%0A%0A` +
-                                `الاسم: ${userData.name}%0A` +
-                                `الدرجة: ${score}/${questions.length}%0A` +
-                                `الوقت المستغرق: ${document.getElementById('time-taken').textContent}%0A` +
-                                `التاريخ: ${document.getElementById('result-date').textContent}`;
-                
-                const whatsappUrl = `https://wa.me/${targetPhoneNumber}?text=${message}`;
-                
-                window.open(whatsappUrl, '_blank');
-                
-            } catch (error) {
-                console.error('Error capturing screenshot:', error);
-                alert('حدث خطأ أثناء محاولة إرسال النتيجة. يرجى المحاولة مرة أخرى.');
-            } finally {
-                loadingOverlay.style.display = 'none';
+                // Add click event to team icons
+                document.querySelectorAll('.team-icon').forEach(icon => {
+                    icon.addEventListener('click', function() {
+                        const teamId = this.getAttribute('data-team');
+                        showTeam(teamId);
+                    });
+                });
             }
-        }
-        
-        // تأكيد الخروج
-        function confirmExit() {
-            testAttempted = true;
-            exitWarning.style.display = 'none';
-            endTest();
-        }
-        
-        // منع التقاط الشاشة
-        function preventScreenCapture() {
-            document.addEventListener('keydown', (e) => {
-                if ((e.ctrlKey && e.key === 'PrintScreen') || e.key === 'PrintScreen') {
-                    e.preventDefault();
-                    showCaptureWarning();
-                }
-            });
             
-            document.addEventListener('contextmenu', (e) => {
-                if (isTestActive) {
-                    e.preventDefault();
-                    showCaptureWarning();
-                }
-            });
-            
-            document.addEventListener('keydown', (e) => {
-                if (isTestActive && (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'i'))) {
-                    e.preventDefault();
-                    showCaptureWarning();
-                }
-            });
-            
-            const originalHTML2Canvas = window.html2canvas;
-            window.html2canvas = function(...args) {
-                if (isTestActive) {
-                    showCaptureWarning();
-                    return Promise.reject('التصوير غير مسموح أثناء الاختبار');
-                }
-                return originalHTML2Canvas(...args);
-            };
-        }
-        
-        function showCaptureWarning() {
-            if (!isTestActive) return;
-            
-            preventCapture.style.display = 'flex';
-            
-            setTimeout(() => {
-                preventCapture.style.display = 'none';
-            }, 3000);
-            
-            if (isTestActive) {
-                const cheatAttempt = {
-                    type: 'cheat_attempt',
-                    user: userData,
-                    timestamp: new Date().toISOString(),
-                    action: 'screen_capture_attempt'
-                };
+            // Render Presentation Files with view and download options
+            function renderPresentationFiles() {
+                const filesContainer = document.getElementById('presentationFiles');
+                filesContainer.innerHTML = ''; // Clear previous content
                 
-                console.warn('تم اكتشاف محاولة غش:', cheatAttempt);
-                localStorage.setItem('cheat_attempt_' + Date.now(), JSON.stringify(cheatAttempt));
+                presentationFiles.forEach(file => {
+                    const fileItem = document.createElement('li');
+                    fileItem.className = 'file-item';
+                    
+                    // Determine if the file is PDF (can be viewed inline)
+                    const isPDF = file.type === 'PDF';
+                    
+                    fileItem.innerHTML = `
+                        <div class="file-info">
+                            <div class="file-icon">
+                                <i class="fas fa-${file.icon}"></i>
+                            </div>
+                            <div class="file-details">
+                                <div class="file-name">${file.name}</div>
+                                <div class="file-meta">
+                                    <span>${file.type}</span>
+                                    <span>${file.size}</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="file-actions">
+                            <button class="view-btn ${!isPDF ? 'tooltip' : ''}" 
+                                    data-url="${file.previewUrl}" 
+                                    data-name="${file.name}"
+                                    ${!isPDF ? 'data-tooltip="عرض في نافذة جديدة"' : ''}>
+                                <i class="fas fa-eye"></i>
+                                <span>معاينة</span>
+                            </button>
+                            <button class="download-btn" data-url="${file.url}" data-name="${file.name}">
+                                <i class="fas fa-download"></i>
+                                <span>تحميل</span>
+                            </button>
+                        </div>
+                    `;
+                    filesContainer.appendChild(fileItem);
+                });
             }
-        }
-        
-        // منع الخروج
-        function preventExit() {
-            window.addEventListener('blur', () => {
-                if (isTestActive && !testAttempted) {
-                    showExitWarning();
+            
+            // Enhanced PDF Viewer Modal functionality
+            function initPdfViewer() {
+                const pdfModal = document.getElementById('pdfModal');
+                const pdfViewer = document.getElementById('pdf-viewer');
+                const pdfModalTitle = document.getElementById('pdfModalTitle');
+                const closeModalBtn = document.querySelector('.close-modal');
+                const toggleFullscreenBtn = document.getElementById('toggle-fullscreen');
+                
+                let currentFileUrl = '';
+                let currentFileName = '';
+                let isFullscreen = false;
+                
+                // Function to toggle fullscreen mode
+                function toggleFullscreen() {
+                    try {
+                        if (!document.fullscreenElement) {
+                            // Enter fullscreen
+                            pdfModal.requestFullscreen().catch(err => {
+                                console.error('Error attempting to enable fullscreen:', err);
+                                manualFullscreen();
+                            });
+                        } else {
+                            // Exit fullscreen
+                            document.exitFullscreen();
+                        }
+                    } catch (err) {
+                        console.error('Fullscreen API error:', err);
+                        manualFullscreen();
+                    }
                 }
-            });
-            
-            window.addEventListener('beforeunload', (e) => {
-                if (isTestActive && !testAttempted) {
-                    e.preventDefault();
-                    e.returnValue = 'إذا خرجت الآن سيتم احتساب المحاولة كفاشلة!';
-                    return e.returnValue;
+                
+                // Fallback for browsers that don't support Fullscreen API
+                function manualFullscreen() {
+                    isFullscreen = !isFullscreen;
+                    
+                    if (isFullscreen) {
+                        pdfModal.classList.add('fullscreen');
+                        toggleFullscreenBtn.classList.add('active');
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        pdfModal.classList.remove('fullscreen');
+                        toggleFullscreenBtn.classList.remove('active');
+                        document.body.style.overflow = '';
+                    }
                 }
-            });
-        }
-        
-        // تهيئة التطبيق
-        function init() {
-            users = JSON.parse(localStorage.getItem('quizParticipants')) || [];
-            sendBackupData();
-            
-            // محاولة تشغيل الصوت عند البدء (سيتخطى إذا كان المتصفح يمنع التشغيل التلقائي)
-            bgMusic.volume = 0.3;
-            bgMusic.play().catch(e => console.log('لا يمكن تشغيل الصوت تلقائياً:', e));
-        }
-
-        // إرسال البيانات المحفوظة عند الاتصال
-        async function sendBackupData() {
-            const backupKeys = Object.keys(localStorage).filter(key => key.startsWith('quiz_backup_'));
-            
-            if (backupKeys.length > 0 && navigator.onLine) {
-                try {
-                    for (const key of backupKeys) {
-                        const data = JSON.parse(localStorage.getItem(key));
-                        const response = await fetch(WEB_APP_URL, {
-                            method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify(data)
-                        });
+                
+                // Function to open PDF viewer
+                function openPdfViewer(pdfUrl, fileName) {
+                    currentFileUrl = pdfUrl;
+                    currentFileName = fileName;
+                    pdfModalTitle.textContent = fileName;
+                    
+                    // Use Google Docs viewer for PDFs
+                    if (pdfUrl.includes('.pdf')) {
+                        pdfViewer.src = `https://docs.google.com/gview?url=${encodeURIComponent(pdfUrl)}&embedded=true`;
+                    } 
+                    // Use Office Online viewer for Office files
+                    else if (pdfUrl.includes('.ppt') || pdfUrl.includes('.pptx') || 
+                             pdfUrl.includes('.doc') || pdfUrl.includes('.docx') || 
+                             pdfUrl.includes('.xls') || pdfUrl.includes('.xlsx')) {
+                        pdfViewer.src = `https://view.officeapps.live.com/op/embed.aspx?src=${encodeURIComponent(pdfUrl)}`;
+                    }
+                    // Fallback to direct link
+                    else {
+                        pdfViewer.src = pdfUrl;
+                    }
+                    
+                    // Show modal with animation
+                    pdfModal.style.display = 'flex';
+                    setTimeout(() => {
+                        pdfModal.classList.add('active');
+                    }, 10);
+                }
+                
+                // Close modal function
+                function closeModal() {
+                    pdfModal.classList.remove('active');
+                    setTimeout(() => {
+                        pdfModal.style.display = 'none';
+                        pdfViewer.src = '';
                         
-                        if (response.ok) {
-                            localStorage.removeItem(key);
-                            console.log(`تم إرسال البيانات المحفوظة بنجاح: ${key}`);
+                        // Exit fullscreen if active
+                        if (document.fullscreenElement) {
+                            document.exitFullscreen();
+                        } else if (isFullscreen) {
+                            manualFullscreen();
+                        }
+                    }, 300);
+                }
+                
+                // View button functionality
+                document.addEventListener('click', function(e) {
+                    if (e.target.closest('.view-btn')) {
+                        const button = e.target.closest('.view-btn');
+                        const fileUrl = button.getAttribute('data-url');
+                        const fileName = button.getAttribute('data-name');
+                        openPdfViewer(fileUrl, fileName);
+                    }
+                });
+                
+                // Download button functionality
+                document.addEventListener('click', function(e) {
+                    if (e.target.closest('.download-btn')) {
+                        const button = e.target.closest('.download-btn');
+                        const fileUrl = button.getAttribute('data-url');
+                        const fileName = button.getAttribute('data-name');
+                        const originalContent = button.innerHTML;
+                        
+                        // Show loading state
+                        button.innerHTML = '<div class="loading"></div>';
+                        button.disabled = true;
+                        
+                        // Create a temporary anchor element to trigger download
+                        const a = document.createElement('a');
+                        a.href = fileUrl;
+                        a.download = fileName;
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        
+                        // Show success state
+                        button.innerHTML = '<i class="fas fa-check"></i> تم التحميل';
+                        
+                        // Reset button after delay
+                        setTimeout(() => {
+                            button.innerHTML = originalContent;
+                            button.disabled = false;
+                        }, 2000);
+                    }
+                });
+                
+                // Close modal events
+                closeModalBtn.addEventListener('click', closeModal);
+                pdfModal.addEventListener('click', function(e) {
+                    if (e.target === pdfModal) {
+                        closeModal();
+                    }
+                });
+                
+                // Fullscreen toggle
+                toggleFullscreenBtn.addEventListener('click', toggleFullscreen);
+                
+                // Handle fullscreen change events
+                document.addEventListener('fullscreenchange', function() {
+                    const fullscreenBtn = document.getElementById('toggle-fullscreen');
+                    if (document.fullscreenElement) {
+                        pdfModal.classList.add('fullscreen');
+                        fullscreenBtn.classList.add('active');
+                        isFullscreen = true;
+                    } else {
+                        pdfModal.classList.remove('fullscreen');
+                        fullscreenBtn.classList.remove('active');
+                        isFullscreen = false;
+                    }
+                });
+                
+                // Keyboard navigation for modal
+                document.addEventListener('keydown', function(e) {
+                    if (pdfModal.style.display === 'flex') {
+                        if (e.key === 'Escape') {
+                            if (document.fullscreenElement || isFullscreen) {
+                                toggleFullscreen();
+                            } else {
+                                closeModal();
+                            }
+                        }
+                        if (e.key === 'f' || e.key === 'F') {
+                            toggleFullscreen();
                         }
                     }
-                } catch (error) {
-                    console.error("خطأ في إرسال البيانات المحفوظة:", error);
-                }
+                });
             }
-        }
-
-        window.onload = init;
+            
+            // Animation on scroll
+            const animateOnScroll = function() {
+                const sections = document.querySelectorAll('.section');
+                const windowHeight = window.innerHeight;
+                const windowTop = window.scrollY;
+                const windowBottom = windowTop + windowHeight;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top + windowTop;
+                    const sectionBottom = sectionTop + section.offsetHeight;
+                    
+                    // Check if section is in viewport
+                    if (sectionBottom >= windowTop && sectionTop <= windowBottom) {
+                        section.style.animation = 'fadeIn 0.8s ease forwards';
+                    }
+                });
+            };
+            
+            // Initialize all functionality
+            function init() {
+                initTeams();
+                renderPresentationFiles();
+                initPdfViewer();
+                
+                // Initial animation check
+                animateOnScroll();
+                
+                // Check on scroll with throttle
+                let isScrolling;
+                window.addEventListener('scroll', function() {
+                    window.clearTimeout(isScrolling);
+                    isScrolling = setTimeout(function() {
+                        animateOnScroll();
+                    }, 50);
+                });
+            }
+            
+            // Start the application
+            init();
+        });
     </script>
 </body>
 </html>
